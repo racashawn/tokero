@@ -22,12 +22,12 @@ test.describe("lighthouse perf tests", () => {
 
     await playAudit({
       page: page,
-      port: 9222, // needs to match the port in config thing
+      port: 9222, 
       thresholds: thresholds,
       config: lighthouseDesktopConfig,
       reports: {
         formats: {
-          html: true, // pretty html report w/ colors 
+          html: true, 
         },
         name: "academy-lighthouse-report",
         directory: "./lighthouse-reports",
