@@ -2,6 +2,8 @@
 
 This repository contains automated tests for the Tokero application using Playwright as part of an interview technical assessment.
 
+> **Technology Choice**: I chose TypeScript due to my experience with the language, but as I've researched, there are many similarities between TypeScript and .NET, so an eventual switch would not be super impactful. Both are strongly-typed languages with similar syntax for many operations, making the transition relatively smooth if needed.
+
 ## Testing Overview
 
 This test automation framework demo focuses on **top layer areas** of the Tokero platform to ensure quality and reliability:
