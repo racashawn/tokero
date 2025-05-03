@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test --project=chromium --headed",
-    "test:allBrowsers": "playwright test --headed"
+    "test": "playwright test --project=chromium",
+    "test:headed": "playwright test --project=chromium --headed",
+    "test:allBrowsers": "playwright test",
+    "test:allBrowsers:headed": "playwright test --headed",
+    "test:lighthouse": "playwright test --config=lighthouse.config.ts --project=chromium-lighthouse"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,8 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.3"
+    "@types/node": "^22.15.3",
+    "lighthouse": "^12.6.0",
+    "playwright-lighthouse": "^4.0.0"
   }
 }

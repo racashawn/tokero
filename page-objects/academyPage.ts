@@ -6,6 +6,7 @@ const academyTitle = (page: Page) =>
   page.getByRole("heading", { name: "TOKERO   Academy" });
 
 const introText = (page: Page) => page.locator(".mud-card-content").first();
+
 const learnAboutCryptoTitle = (page: Page, lang = "en") =>
   page.getByRole("heading", {
     name: getTranslation(lang, "LabelLearnAboutCrypto"),
@@ -18,10 +19,15 @@ const tokeroCryptionaryTitle = (page: Page, lang = "en") =>
   page.getByRole("heading", {
     name: getTranslation(lang, "LabelTOKEROCryptionary"),
   });
+
 const TokeroCryptionaryText = (page: Page) =>
   page.locator(
     "div:nth-child(3) > .mud-card-content > .row > div:nth-child(2)"
   );
+
+
+
+
 
 export async function isOnAcademyPage(page: Page) {
   await expect(academyTitle(page)).toBeVisible();

@@ -6,6 +6,9 @@ const createAccountTitle = (page: Page, lang = "en") =>
     name: getTranslation(lang, "TitleCreateNewAccount"),
   });
 
+
+  
+
 export async function isOnCreateAccountPage(page: Page, lang?: string) {
   await expect.soft(createAccountTitle(page, lang)).toBeVisible();
 }

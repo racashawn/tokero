@@ -7,6 +7,8 @@ const contactUsTitle = (page: Page, lang = "en") =>
     name: getTranslation(lang, "TitleContact"),
   });
 
+
+  
 export async function isOnContactUsPage(page: Page, lang?: string) {
   await expect(contactUsTitle(page, lang)).toBeVisible();
 }

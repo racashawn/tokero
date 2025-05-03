@@ -56,11 +56,10 @@ const createAccountBtn = (page: Page, lang?: string) => {
 
 //============================= functions ==============================
 
-/**
- * Extracts the language code from the current page URL.
- * Defaults to 'en' if no language code segment is found.
- * @param page The Playwright Page object.
- * @returns The detected language code as a string.
+/** extracts the language code from the current page URL
+ *
+ * @param page - the Playwright Page object
+ * @returns The detected language code as a string
  */
 async function getCurrentLangCode(page: Page): Promise<string> {
   const currentUrl = page.url();
@@ -77,8 +76,8 @@ async function getCurrentLangCode(page: Page): Promise<string> {
 
 /**
  *
- * @param page  - the page
- * @param lang - use one of the language codes available in the FE
+ * @param page - the page
+ * @param lang - use one of the language codes available in the FE in the dropdown lang selector
  */
 export async function changeLanguageTo(page: Page, lang: string) {
   (await languageSwitchBtn(page)).click();

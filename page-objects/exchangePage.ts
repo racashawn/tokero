@@ -7,6 +7,9 @@ const exchangeTitle = (page: Page, lang: string) =>
     name: getTranslation(lang, "TitleExchange"),
   });
 
+
+  
+
 export async function isOnExchangePage(page: Page, lang = "en") {
   await expect(exchangeTitle(page, lang)).toBeVisible();
 }

@@ -1,15 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-// Define the structure of your translation files if possible (optional but good practice)
+
 interface Translations {
   [key: string]: string;
-  // Example: Explicitly define known keys if you want better type checking
-  // LabelCorporate?: string;
-  // LabelExchange?: string;
 }
 
-// Cache to store loaded translations
 const translationsCache: { [lang: string]: Translations } = {};
 
 /**
@@ -20,23 +16,19 @@ const translationsCache: { [lang: string]: Translations } = {};
  * @returns The parsed translation object for the language.
  */
 export function getTranslations(lang: string): Translations {
-  // Check cache first
+  // check cache first
   if (translationsCache[lang]) {
     return translationsCache[lang];
   }
 
-  // Construct the file path (adjust '../translations' if your structure differs)
-  // __dirname usually points to the directory of the current module (e.g., page-objects)
-  // So we might need to go up one level depending on where translationHelper.ts is.
-  // Using process.cwd() might be more robust if run from project root.
   const filePath = path.resolve(process.cwd(), "lang-packs", `${lang}.json`);
-  console.log(`Attempting to load translations from: ${filePath}`); // For debugging
+  console.log(`Attempting to load translations from: ${filePath}`); // for debugging
 
   try {
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const parsedTranslations = JSON.parse(fileContent) as Translations;
 
-    // Store in cache
+    // add to cache
     translationsCache[lang] = parsedTranslations;
     return parsedTranslations;
   } catch (error) {
@@ -44,16 +36,16 @@ export function getTranslations(lang: string): Translations {
       `Error loading translations for language "${lang}" from ${filePath}:`,
       error
     );
-    // Return an empty object or throw an error, depending on desired behavior
+  
     return {};
   }
 }
 
 /**
- * Gets a specific translation string for a given key and language.
- * @param lang Language code.
- * @param key The key in the JSON file (e.g., "LabelCorporate").
- * @returns The translated string or the key itself if not found.
+ * gets a specific translation string for a given key and language.
+ * @param lang language code.
+ * @param key the key in the JSON file (e.g., "LabelCorporate").
+ * @returns the translated string or the key itself if not found.
  */
 export function getTranslation(lang: string, key: string): string {
   const translations = getTranslations(lang);
